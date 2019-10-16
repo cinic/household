@@ -1,0 +1,30 @@
+:root {
+  --unit-size: 10px;
+  --line-height: 30px;
+  --border-radius: 4px;
+  --input-height: 30px;
+
+  /* Colors */
+  --dark-1: #000;
+  --dark-2: #333;
+  --light-1: #fff;
+  --light-2: #f5f6f7;
+  --gray-1: #808080;
+  --gray-2: #757575;
+  --gray-3: #e0e0e0;
+  --red-1: #fc5d49;
+  --red-2: #ffcfc9;
+  --blue-1: #0b64bf;
+  --blue-2: #459de5;
+  --blue-3: #b6d1ec;
+  --blue-4: rgba(11, 100, 191, 0.1);
+  --orange-1: #f7941e;
+  --orange-2: #ed8a39;
+  --green-1: #48af62;
+  --green-2: #b1e9bf;
+  --yellow-1: #fcf8d0;
+}
+
+.app {
+  background-color: var(--green-2);
+}

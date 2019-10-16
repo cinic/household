@@ -20,11 +20,6 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
 
 # node-waf configuration
 .lock-wscript
@@ -37,7 +32,7 @@ node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
-typings/
+# typings/
 
 # Optional npm cache directory
 .npm
@@ -59,3 +54,6 @@ typings/
 
 # next.js build output
 .next
+
+dist/
+.cache/

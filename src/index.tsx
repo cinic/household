@@ -1,5 +1,70 @@
-import React from 'react'
-import { render } from 'react-dom'
-import styles from './ui/theme.css'
+import {createStore, createEvent, sample} from 'effector'
+import {using, spec, h} from 'forest'
+import {styles} from './styles'
 
-render(<div className={styles.app}>Hello world!</div>, document.querySelector('#root'))
+using(document.body, () => {
+  const {change, submit, state} = formModel()
+
+  h('section', () => {
+    spec({data: {gridTable: 'row'}})
+    styles.releaseList()
+    h('form', () => {
+      spec({
+        handler: {
+          config: {prevent: true},
+          on: {submit}
+        },
+        style: {
+          display: 'flex',
+          flexDirection: 'column'
+        }
+      })
+
+      h('input', {
+        attr: {placeholder: 'Username'},
+        handler: {input: change('username')}
+      })
+
+      h('input', {
+        attr: {type: 'password', placeholder: 'Password'},
+        handler: {input: change('password')}
+      })
+
+      h('button', {
+        text: 'Submit',
+        attr: {
+          disabled: state.map(values => !(values.username && values.password))
+        }
+      })
+    })
+
+    h('section', () => {
+      spec({style: {marginTop: '1em'}})
+      styles.releaseList()
+      h('div', {text: 'Reactive form debug:'})
+      h('pre', {text: state.map(stringify)})
+    })
+  })
+})
+
+function formModel() {
+  const state = createStore({})
+  const changed = createEvent()
+  const submit = createEvent()
+
+  state.on(changed, (data, {name, value}) => ({...data, [name]: value}))
+
+  const change = name => changed.prepend(e => ({name, value: e.target.value}))
+
+  sample({
+    source: state,
+    clock: submit,
+    fn: stringify
+  }).watch(alert)
+
+  return {change, submit, state}
+}
+
+function stringify(values) {
+  return JSON.stringify(values, null, 2)
+}

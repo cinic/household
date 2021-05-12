@@ -1,0 +1,22 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "shippedProposals": true,
+        "modules": false,
+        "targets": {
+          "browsers": ["last 2 Chrome versions", "last 2 Safari versions"]
+        }
+      }
+    ],
+    [
+      "@babel/preset-typescript",
+      {
+        "isTSX": false,
+        "allExtensions": true
+      }
+    ]
+  ],
+  "plugins": ["effector/babel-plugin", "./babel.js"]
+}

@@ -8,44 +8,42 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel serve src/index.html",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src",
     "lint:fix": "eslint --fix --ext .ts,.tsx,.js,.jsx ./src",
     "lintstyle": "stylelint ./src/**/* --color",
     "lintstyle:fix": "stylelint ./src/**/* --fix --color"
   },
   "devDependencies": {
-    "@types/react": "^16.9.9",
-    "@types/react-dom": "^16.9.2",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/template": "^7.10.4",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "parcel-bundler": "^1.12.4",
-    "postcss-mixins": "^6.2.2",
-    "postcss-modules": "^2.0.0",
-    "postcss-preset-env": "^6.7.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.4",
+    "parcel": "^2.0.0-beta.1",
     "prettier": "^2.0.4",
-    "stylelint": "^13.3.2",
-    "stylelint-config-standard": "^20.0.0",
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "ui": "^0.2.4"
+    "effector": "^21.2.2",
+    "forest": "^0.19.2"
   },
   "prettier": {
-    "printWidth": 100,
+    "printWidth": 80,
     "singleQuote": true,
-    "trailingComma": "all",
+    "trailingComma": "none",
     "tabWidth": 2,
     "useTabs": false,
-    "semi": false
+    "semi": false,
+    "bracketSpacing": false,
+    "arrowParens": "avoid"
   }
 }

@@ -58,3 +58,4 @@ jspm_packages/
 dist/
 .cache/
 .parcel-cache/
+.vscode/
